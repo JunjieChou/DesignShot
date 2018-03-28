@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tomorrow_weather_background">#4d68fd</color>
+    <color name="day_after_tomorrow_weather_background">#3451f1</color>
+    <color name="day_more_after_weather_background">#1a3ae7</color>
+    <color name="last_day_background">#0222cf</color>
+    <color name="activity_background_color">#ffffff</color>
+    <color name="font_color">#90000000</color>
+</resources>

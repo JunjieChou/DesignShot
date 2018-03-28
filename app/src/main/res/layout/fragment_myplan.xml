@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <!--gridView-->
+    <GridView
+        android:id="@+id/gv_MyPlan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:columnWidth="160dp"
+        android:minHeight="80dp"
+        android:numColumns="2"
+        android:stretchMode="spacingWidthUniform"
+        android:verticalSpacing="15dp">
+    </GridView>
+
+    <!--底部时间以及设置的显示-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/tv_myPlan_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:text="2018.09.08 22:23"
+            android:textColor="@color/font_color"/>
+
+        <LinearLayout
+            android:id="@+id/ll_sync_cloud_myPlan"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/sync_shape_corner"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/refresh"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/sync_cloud_myPlan"
+                android:textColor="@color/font_color"
+                android:textSize="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

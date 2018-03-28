@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.olituc.designshot.SettingsActivity"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/activity_background_color"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="8">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/activity_background_color"
+            android:textSize="20dp"
+            android:text="@string/title_activity_settings"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/activity_background_color"
+            android:textSize="15dp"
+            android:text="完成"
+            android:onClick="returnToMain"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <com.olituc.designshot.Utils.SwitchButton
+            android:id="@+id/switch_sync_button"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            app:sb_checked_color="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_cloud_myPlan"
+            android:textColor="@color/font_color"
+            android:textSize="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:weightSum="9">
+        <TextView
+            android:id="@+id/tv_current_users"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="olituc"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:paddingLeft="16dp"
+            android:background="@drawable/ll_sync_cloud_controller"
+            android:weightSum="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="1dp"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/change_passWord"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/userlogin_et_corner"
+                android:onClick="changeLoginPassWord"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="1dp"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center_vertical|left"
+                android:text="@string/cancel_login_status"
+                android:onClick="cancelLoginStatus"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_design_shot_version"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:text="DesignShot 0.0.1"
+        android:textSize="10dp"/>
+
+</LinearLayout>

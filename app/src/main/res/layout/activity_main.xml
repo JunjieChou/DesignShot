@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_redirectToWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="showWeatherActivity"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/marshmellowcloud"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:id="@+id/iv_MyPlan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/checked_myplan_module1"/>
+
+                <ImageView
+                    android:id="@+id/iv_ShareLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/unchecked_sharelocation_module1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_redirectToUser"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="showUserInfoActivity"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/user"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <SearchView
+            android:id="@+id/sv_search_everything"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:autofillHints="搜索"
+            android:background="?attr/colorButtonNormal"
+            android:elevation="0dp"
+            android:fadeScrollbars="false"
+            android:gravity="center"
+            android:orientation="horizontal"/>
+
+        <com.olituc.designshot.Utils.NoSlideViewPager
+            android:id="@+id/vp_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+        </com.olituc.designshot.Utils.NoSlideViewPager>
+
+    </LinearLayout>
+</LinearLayout>

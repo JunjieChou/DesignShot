@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.olituc.designshot.ShowLocationActivity"
+    android:weightSum="3"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_show_location_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:src="@drawable/searh"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="3"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_show_location_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="希腊圣托里尼岛晚霞"/>
+        <TextView
+            android:id="@+id/tv_show_location_remark"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:textColor="@color/font_color"
+            android:textSize="20dp"
+            android:text="使用包围曝光，在当地时间傍晚六点左右晚霞开始"/>
+        <TextView
+            android:id="@+id/tv_show_location_author"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:textSize="16dp"
+            android:text="----olituc"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:background="@drawable/bell"/>
+</LinearLayout>

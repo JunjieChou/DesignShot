@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="130dp"
+              android:orientation="vertical"
+              android:textColor="@color/day_after_tomorrow_weather_background">
+    <TextView
+        android:id="@+id/tv_weather_info_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:text="78"
+        android:textColor="@android:color/white"/>
+
+    <ImageView
+        android:id="@+id/iv_weather_info_status_image"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_weather_info_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|top"
+        android:textSize="12sp"
+        android:text="18"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

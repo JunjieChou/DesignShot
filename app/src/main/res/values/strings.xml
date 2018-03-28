@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">DesignShot</string>
+    <string name="title_activity_weather_info">WeatherInfoActivity</string>
+    <string name="create_plan">创建计划</string>
+    <string name="share_location">分享机位</string>
+    <string name="title_activity_login">登录</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">邮箱</string>RadioButton
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_create_account">创建账户</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">邮箱地址不正确</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码输入不正确</string>
+    <string name="error_field_required">此处不能为空</string>
+    <string name="title_activity_create_account">创建账户</string>
+    <string name="title_activity_modify_password">修改密码</string>
+    <string name="accept_lawsAndPrivacy">同意隐私政策和条款</string>
+
+    <!--Strings related to settings-->
+    <string name="title_activity_settings">设置</string>
+    <string name="sync_cloud_myPlan">同步云计划</string>
+    <string name="change_passWord">更换密码</string>
+    <string name="cancel_login_status">取消登录</string>
+    <string name="done_settings">完成</string>
+
+    <!---Strings related to shareLocation-->
+    <string name="hot_location">热门机位</string>
+    <string name="more_hot_location">更多></string>
+    <string name="hot_plan">热门计划</string>
+    <string name="more_hot_plan">更多></string>
+    <string name="search_bottom_navigator">导航</string>
+    <string name="my_location">我的机位</string>
+
+    <!--Strings related to create-->
+    <string name="create_new_location_title">创建机位</string>
+    <string name="create_new_plan_title">创建计划</string>
+
+    <!--Strings related to show-->
+    <string name="show_plan">计划详情</string>
+    <string name="show_location">机位详情</string>
+</resources>
