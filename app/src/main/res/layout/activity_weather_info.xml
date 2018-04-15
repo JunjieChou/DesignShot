@@ -24,10 +24,11 @@
         android:textSize="60dp"/>
 
     <LinearLayout
+        android:id="@+id/main_weather_bg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@drawable/weatherbg"
+        android:background="@color/today_weather_background"
         android:orientation="vertical"
         android:weightSum="5">
 
@@ -57,7 +58,8 @@
                     android:layout_gravity="center"
                     android:text="苏州"
                     android:textColor="@android:color/white"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:onClick="selectCity"/>
 
                 <TextView
                     android:id="@+id/tv_weather_date"
@@ -85,7 +87,8 @@
                 android:gravity="center"
                 android:text="创\n建\n计\n划"
                 android:textColor="@android:color/white"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:onClick="createNewPlanByWeather"/>
 
             <TextView
                 android:id="@+id/tv_today_temperature"
@@ -161,11 +164,108 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.olituc.designshot.Utils.HorizontalListView
-        android:id="@+id/lv_future_weather_info"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/day_after_tomorrow_weather_background">
-    </com.olituc.designshot.Utils.HorizontalListView>
+        android:weightSum="3"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/ll_today_weather"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/today_weather_background"
+            android:gravity="center"
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:onClick="todayWeatherClick">
+            <TextView
+                android:id="@+id/today_weather_date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="今天"
+                android:textColor="#ffffff"/>
+            <ImageView
+                android:id="@+id/today_weather_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/night"/>
+            <TextView
+                android:id="@+id/today_weather_degree"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17℃"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/tomorrow_weather_background"
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:onClick="tomorrowWeatherClick">
+            <TextView
+                android:id="@+id/tomorrow_weather_date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="明天"
+                android:textColor="#ffffff"/>
+            <ImageView
+                android:id="@+id/tomorrow_weather_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/night"/>
+            <TextView
+                android:id="@+id/tomorrow_weather_degree"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17℃"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/the_day_after_tomorrow_weather_background"
+            android:gravity="center"
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:onClick="afterTomorrowWeatherClick">
+            <TextView
+                android:id="@+id/the_day_after_tomorrow_weather_date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="后天"
+                android:textColor="#ffffff"/>
+            <ImageView
+                android:id="@+id/the_day_after_tomorrow_weather_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@drawable/night"/>
+            <TextView
+                android:id="@+id/the_day_after_tomorrow_weather_degree"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="17℃"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

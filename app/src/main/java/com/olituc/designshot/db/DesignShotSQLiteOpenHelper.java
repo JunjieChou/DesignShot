@@ -17,16 +17,16 @@ public class DesignShotSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.println("onCreate数据库被创建了");
-        db.execSQL("CREATE TABLE WeatherInfo " +
-                "(weatherId INTEGER PRIMARY KEY ASC NOT NULL UNIQUE," +
-                " weatherCity VARCHAR (20), " +
-                "weatherDate DATE DEFAULT ('2019-01-01'), " +
-                "temperature INTEGER DEFAULT (17), " +
-                "airQuality VARCHAR (10), " +
-                "airVisibility VARCHAR (10), " +
-                "sunRiseTime TIME DEFAULT (6), " +
-                "sunSetTime VARCHAR (20) DEFAULT (18), " +
-                "blueHour VARCHAR (20));");
+        db.execSQL("CREATE TABLE WeatherInfo (" +
+                "weatherId INT PRIMARY KEY NOT NULL, " +
+                "weatherDate DATE NOT NULL, " +
+                "weatherTemp INT NOT NULL, " +
+                "weatherCondition VARCHAR(10) NOT NULL, " +
+                "weatherAirQua VARCHAR(10) NOT NULL, " +
+                "weatherAirVis VARCHAR(10) NOT NULL, " +
+                "weatherSunRise TIME NOT NULL, " +
+                "weatherSunSet TIME NOT NULL, " +
+                "weatherBlueHour TIME NOT NULL);");
         db.execSQL("CREATE TABLE User " +
                 "(userId INTEGER PRIMARY KEY NOT NULL, " +
                 "Email VARCHAR (30) NOT NULL, " +
@@ -48,6 +48,5 @@ public class DesignShotSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        System.out.println("onUpdate数据库被更新了");
     }
 }

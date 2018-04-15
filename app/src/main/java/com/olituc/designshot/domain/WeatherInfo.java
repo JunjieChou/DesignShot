@@ -9,76 +9,86 @@ import java.sql.Time;
  */
 
 public class WeatherInfo {
-    private String city;
-    private Date date;
-    private Integer temperature;
-    private String air_quality;
-    private String visible_degree;
-    private Time sunrise;
-    private Time sunset;
-    private Time BlueHour;
 
-    public String getCity() {
-        return city;
+    private int weatherId;
+    private Date weatherDate;
+    private int weatherTemp;
+    private String weatherCondition;
+    private String weatherAirQua;
+    private String weatherAirVis;
+    private Time weatherSunRise;
+    private Time weatherSunSet;
+    private Time weatherBlueHour;
+
+    public int getWeatherId() {
+        return weatherId;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setWeatherId(int weatherId) {
+        this.weatherId = weatherId;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getWeatherDate() {
+        return weatherDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setWeatherDate(Date weatherDate) {
+        this.weatherDate = weatherDate;
     }
 
-    public Integer getTemperature() {
-        return temperature;
+    public int getWeatherTemp() {
+        return weatherTemp;
     }
 
-    public void setTemprature(Integer temperature) {
-        this.temperature = temperature;
+    public void setWeatherTemp(int weatherTemp) {
+        this.weatherTemp = weatherTemp;
     }
 
-    public String getAir_quality() {
-        return air_quality;
+    public String getWeatherCondition() {
+        return weatherCondition;
     }
 
-    public void setAir_quality(String air_quality) {
-        this.air_quality = air_quality;
+    public void setWeatherCondition(String weatherCondition) {
+        this.weatherCondition = weatherCondition;
     }
 
-    public String getVisible_degree() {
-        return visible_degree;
+    public String getWeatherAirQua() {
+        return weatherAirQua;
     }
 
-    public void setVisible_degree(String visible_degree) {
-        this.visible_degree = visible_degree;
+    public void setWeatherAirQua(String weatherAirQua) {
+        this.weatherAirQua = weatherAirQua;
     }
 
-    public Time getSunrise() {
-        return sunrise;
+    public String getWeatherAirVis() {
+        return weatherAirVis;
     }
 
-    public void setSunrise(Time sunrise) {
-        this.sunrise = sunrise;
+    public void setWeatherAirVis(String weatherAirVis) {
+        this.weatherAirVis = weatherAirVis;
     }
 
-    public Time getSunset() {
-        return sunset;
+    public Time getWeatherSunRise() {
+        return weatherSunRise;
     }
 
-    public void setSunset(Time sunset) {
-        this.sunset = sunset;
+    public void setWeatherSunRise(Time weatherSunRise) {
+        this.weatherSunRise = weatherSunRise;
     }
 
-    public Time getBlueHour() {
-        return BlueHour;
+    public Time getWeatherSunSet() {
+        return weatherSunSet;
     }
 
-    public void setBlueHour(Time blueHour) {
-        BlueHour = blueHour;
+    public void setWeatherSunSet(Time weatherSunSet) {
+        this.weatherSunSet = weatherSunSet;
+    }
+
+    public Time getWeatherBlueHour() {
+        return weatherBlueHour;
+    }
+
+    public void setWeatherBlueHour(Time weatherBlueHour) {
+        this.weatherBlueHour = weatherBlueHour;
     }
 }

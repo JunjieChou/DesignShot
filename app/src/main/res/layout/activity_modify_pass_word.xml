@@ -24,7 +24,7 @@
             android:background="@drawable/userlogin_et_corner">
 
             <EditText
-                android:id="@+id/et_new_password"
+                android:id="@+id/et_forget_username"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:hint="用户名"
@@ -41,7 +41,7 @@
             android:background="@drawable/userlogin_et_corner">
 
             <EditText
-                android:id="@+id/et_ensure_new_password"
+                android:id="@+id/et_forget_email"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:hint="@string/prompt_email"
@@ -59,7 +59,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/font_color"
-        android:text="@string/action_sign_in"
+        android:text="@string/ensure_forget_pass"
         android:textStyle="bold"
         android:onClick="ensureModifyPassWord"
         android:background="@drawable/button_shape_corner"/>

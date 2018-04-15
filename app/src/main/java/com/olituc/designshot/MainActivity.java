@@ -1,5 +1,7 @@
 package com.olituc.designshot;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -197,8 +199,57 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      * @param view
      */
     public void showUserInfoActivity(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        DesignShotAPP app = (DesignShotAPP) this.getApplicationContext();
+        if(app.getUserStatus() == 1){
+            logoutCurrentUser(app,this);
+        }else {
+            logInaNewUser(app);
+        }
     }
+
+    private void logInaNewUser(DesignShotAPP app) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivityForResult(intent,1);
+    }
+
+    private void logoutCurrentUser(final DesignShotAPP app, MainActivity mainActivity) {
+        String userEmail = app.getUserName()+"("+app.getUserEmail()+")";
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity)
+                .setTitle("提示")
+                .setMessage("您确定退出账号" + userEmail + "吗？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        app.retrieve();
+                        mIV_redirectToUser.setImageResource(R.drawable.user);
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        builder.show();
+    }
+
+    /**
+     * 根据返回的结果显示这个activity应该有的变化
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode) {
+            case 1:
+                mIV_redirectToUser.setImageResource(R.drawable.addorplus);
+                break;
+
+            default:
+                break;
+        }
+    }
+
 
 }

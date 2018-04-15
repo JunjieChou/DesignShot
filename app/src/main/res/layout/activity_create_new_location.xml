@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
@@ -99,6 +100,26 @@
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="是否同步"/>
+            <com.olituc.designshot.Utils.SwitchButton
+                android:id="@+id/switch_create_spot_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                app:sb_checked_color="@color/colorAccent"
+                android:clickable="false"
+                android:tooltipText="是否共享"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -108,7 +129,8 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="20dp"
-                android:src="@drawable/camera"/>
+                android:src="@drawable/camera"
+                android:onClick="addANewSpotPic"/>
         </LinearLayout>
 
     </LinearLayout>

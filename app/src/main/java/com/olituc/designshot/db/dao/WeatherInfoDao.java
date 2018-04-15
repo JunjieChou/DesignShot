@@ -26,46 +26,94 @@ public class WeatherInfoDao {
 
     /**
      * 添加天气信息
+     * 参数为List类型的WeatherInfo
+     * 如果修改数据成功，修改布尔值
+     * @param list
      */
-    public void addWeather(int weatherId, String weatherCity, Date weatherDate, int temperature, String airQuality, String airVisibility, Time sunRiseTime, Time sunSetTime,Time blueHour){
+    public boolean addWeather(List<WeatherInfo> list){
         SQLiteDatabase db = mDesignShotSQLiteOpenHelper.getWritableDatabase();
-        db.execSQL("insert into weatherInfo(weatherId, weatherCity,weatherDate, temperature,airQuality,airVisibility, sunRiseTime,sunSetTime,blueHour) values(?,?,?,?,?,?,?,?,?) ;",
-                new Object[]{weatherId,weatherCity,weatherDate,temperature,airQuality,airVisibility,sunRiseTime,sunSetTime,blueHour});
-        db.close();
+        boolean result;
+        try {
+            for (int i = 0; i < list.size(); i++) {
+                db.execSQL("insert into WeatherInfo(weatherId,weatherDate," +
+                                "weatherTemp,weatherCondition,weatherAirQua,weatherAirVis," +
+                                "weatherSunRise,weatherSunSet,weatherBlueHour) values(?,?,?,?,?,?,?,?,?);",
+                        new Object[]{
+                                list.get(i).getWeatherId(),
+                                list.get(i).getWeatherDate(),
+                                list.get(i).getWeatherTemp(),
+                                list.get(i).getWeatherCondition(),
+                                list.get(i).getWeatherAirQua(),
+                                list.get(i).getWeatherAirVis(),
+                                list.get(i).getWeatherSunRise(),
+                                list.get(i).getWeatherSunSet(),
+                                list.get(i).getWeatherBlueHour()
+                        });
+            }
+            db.close();
+            result = true;
+        } catch (Exception e){
+            result = false;
+        }finally {
+            if(db != null) db.close();
+        }
+        return result;
     }
 
     /**
-     * 修改天气信息
+     * 清空表
+     * @return
      */
-    public void update(int weatherId,String weatherCity,Date weatherDate, int temperature, String airQuality, String airVisibility, Time sunRiseTime, Time sunSetTime,Time blueHour){
-        SQLiteDatabase db = mDesignShotSQLiteOpenHelper.getWritableDatabase();
-        db.execSQL("update weatherInfo set weatherCity = ? ,weatherDate = ? ,temperature = ? ,airQuality = ? ,airVisibility = ? ,sunRiseTime = ? ,sunSetTime = ? ,blueHour = ?where weatherId = ?;",
-                new Object[]{weatherCity,weatherDate,weatherCity,temperature,airQuality,airVisibility,sunRiseTime,sunSetTime,blueHour,weatherId});
-        db.close();
+    public boolean clearTable(){
+        SQLiteDatabase db = null;
+        boolean result = false;
+        try {
+            db = mDesignShotSQLiteOpenHelper.getWritableDatabase();
+            db.execSQL("delete from WeatherInfo;");
+            result = true;
+        }catch (Exception e){
+            e.printStackTrace();
+            result = false;
+        }
+        finally {
+            if(db!=null){
+                db.close();
+            }
+        }
+        return result;
     }
 
     /**
-     * 查询天气
+     * 返回天气链表
+     * @return mWeatherInfos
      */
-    public List<WeatherInfo> query(String weatherCity){
+    public List<WeatherInfo> query(){
+        mWeatherInfos.clear();
         SQLiteDatabase db = mDesignShotSQLiteOpenHelper.getReadableDatabase();
-        for(int i = 0 ; i< 4; ++i){
-            Cursor cursor = db.rawQuery("select weatherCity,weatherDate,temperature,airQuality,airVisibility,sunRiseTime,sunSetTime from weatherInfo where weatherId = ?;", new String[]{String.valueOf(i)});
+        for(int i = 1 ; i< 4; ++i){
+            Cursor cursor = db.rawQuery("select weatherDate,weatherTemp,weatherCondition," +
+                    "weatherAirQua,weatherAirVis,weatherSunRise,weatherSunSet,weatherBlueHour" +
+                    " from WeatherInfo where weatherId = ?;",new String[]{String.valueOf(i)});
             while (cursor.moveToNext()){
                 try {
-                    mWeatherInfos.get(i).setCity(cursor.getString(0));
-                    mWeatherInfos.get(i).setDate(Date.valueOf(cursor.getString(1)));
-                    mWeatherInfos.get(i).setTemprature(cursor.getInt(2));
-                    mWeatherInfos.get(i).setAir_quality(cursor.getString(3));
-                    mWeatherInfos.get(i).setVisible_degree(cursor.getString(4));
-                    mWeatherInfos.get(i).setSunrise(Time.valueOf(cursor.getString(5)));
-                    mWeatherInfos.get(i).setSunset(Time.valueOf(cursor.getString(6)));
-                    mWeatherInfos.get(i).setBlueHour(Time.valueOf(cursor.getString(7)));
+                    WeatherInfo weatherInfo = new WeatherInfo();
+                    weatherInfo.setWeatherId(i);
+                    weatherInfo.setWeatherDate(Date.valueOf(cursor.getString(0)));
+                    weatherInfo.setWeatherTemp(cursor.getInt(1));
+                    weatherInfo.setWeatherCondition(cursor.getString(2));
+                    weatherInfo.setWeatherAirQua(cursor.getString(3));
+                    weatherInfo.setWeatherAirVis(cursor.getString(4));
+                    weatherInfo.setWeatherSunRise(Time.valueOf(cursor.getString(5)));
+                    weatherInfo.setWeatherSunSet(Time.valueOf(cursor.getString(6)));
+                    weatherInfo.setWeatherBlueHour(Time.valueOf(cursor.getString(7)));
+                    mWeatherInfos.add(weatherInfo);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            cursor.close();
+            if(cursor!=null){
+                cursor.close();
+            }
         }
         return mWeatherInfos;
     }

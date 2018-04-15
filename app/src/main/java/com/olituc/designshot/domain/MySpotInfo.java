@@ -2,6 +2,8 @@ package com.olituc.designshot.domain;
 
 import android.graphics.Bitmap;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created by olituc on 3/13/18.
  * All Rights Reserved by olituc
@@ -10,10 +12,10 @@ import android.graphics.Bitmap;
 public class MySpotInfo {
 
     private int spotId;
-    private String spotLocation;
-    private String spotCity;
-    private String spotRemark;
-    private Bitmap spotPic;
+    private String spotLocation ="";
+    private String spotCity="";
+    private String spotRemark="";
+    private Bitmap spotPic=null;
 
     public boolean isPublic() {
         return isPublic;
@@ -58,8 +60,20 @@ public class MySpotInfo {
         this.spotRemark = spotRemark;
     }
 
-    public Bitmap getSpotPic() {
+    public Bitmap getSpotPicBitmap() {
         return spotPic;
+    }
+
+    public byte[] getSpotPic(){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        this.spotPic.compress(Bitmap.CompressFormat.PNG,50,baos);
+        try {
+            baos.flush();
+            baos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return baos.toByteArray();
     }
 
     public void setSpotPic(Bitmap spotPic) {

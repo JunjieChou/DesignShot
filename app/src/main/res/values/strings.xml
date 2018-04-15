@@ -9,6 +9,7 @@
     <string name="prompt_email">邮箱</string>RadioButton
     <string name="prompt_password">密码</string>
     <string name="action_sign_in">登录</string>
+    <string name="ensure_forget_pass">确认</string>
     <string name="action_create_account">创建账户</string>
     <string name="action_sign_in_short">登录</string>
     <string name="error_invalid_email">邮箱地址不正确</string>
@@ -41,4 +42,7 @@
     <!--Strings related to show-->
     <string name="show_plan">计划详情</string>
     <string name="show_location">机位详情</string>
+
+    <!--Strings related to weather-->
+    <string name="weather_city">选择城市</string>
 </resources>

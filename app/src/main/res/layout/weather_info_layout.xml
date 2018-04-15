@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="wrap_content"
               android:layout_height="130dp"
-              android:orientation="vertical"
-              android:textColor="@color/day_after_tomorrow_weather_background">
+              android:orientation="vertical">
     <TextView
         android:id="@+id/tv_weather_info_date"
         android:layout_width="wrap_content"

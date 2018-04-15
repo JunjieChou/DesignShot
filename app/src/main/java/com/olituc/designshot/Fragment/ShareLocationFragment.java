@@ -26,6 +26,7 @@ import java.util.List;
 
 public class ShareLocationFragment extends Fragment implements View.OnClickListener {
 
+    private static final int CREATE_A_NEW_SPOT_CODE = 1;
     /**
      * 定义全局变量
      */
@@ -36,6 +37,7 @@ public class ShareLocationFragment extends Fragment implements View.OnClickListe
 
     private List<Fragment> mFragments;
     private FragmentPagerAdapter mFragmentPagerAdapter;
+    private  ShareMyLocationFragment sm = new ShareMyLocationFragment();
 
     @Nullable
     @Override
@@ -62,7 +64,7 @@ public class ShareLocationFragment extends Fragment implements View.OnClickListe
     private void initializeFragments() {
         mFragments = new ArrayList<>();
         mFragments.add(new ShareHotLocationFragment());
-        mFragments.add(new ShareMyLocationFragment());
+        mFragments.add(sm);
 
         mFragmentPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
@@ -75,7 +77,9 @@ public class ShareLocationFragment extends Fragment implements View.OnClickListe
                 return mFragments.size();
             }
         };
+
         mVP_share_location_all.setAdapter(mFragmentPagerAdapter);
+
         mVP_share_location_all.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -125,16 +129,29 @@ public class ShareLocationFragment extends Fragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.switch_to_hot_location:
                 selectTab(0);
-                Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.switch_to_my_location:
-                Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
                 selectTab(1);
                 break;
             case R.id.add_my_location:
-                Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), CreateNewLocationActivity.class));
+                startActivityForResult(new Intent(getContext(), CreateNewLocationActivity.class),CREATE_A_NEW_SPOT_CODE);
                 break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                selectTab(1);
+                sm.querySpotInfo();
+                break;
+             case 2:
+                 Toast.makeText(getContext(),"添加失败", Toast.LENGTH_SHORT).show();
+                 break;
             default:
                 break;
         }

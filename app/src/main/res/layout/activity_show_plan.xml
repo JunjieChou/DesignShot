@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.olituc.designshot.ShowLocationActivity"
+    tools:context="com.olituc.designshot.ShowPlanActivity"
     android:weightSum="3"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ffffff">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"/>
     <ImageView
         android:id="@+id/iv_show_plan_image"
         android:layout_width="match_parent"
@@ -19,7 +24,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.75"
+        android:layout_weight="1"
         android:weightSum="3"
         android:orientation="vertical">
         <TextView
@@ -68,7 +73,31 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
+        android:layout_weight="0.6"
+        android:layout_margin="20dp"
         android:background="@drawable/bell"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="删除"
+            android:onClick="DeletePlanShowClick"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="返回"
+            android:onClick="ClosePlanShowClick"/>
+    </LinearLayout>
 </LinearLayout>

@@ -13,15 +13,15 @@ import java.io.IOException;
 
 public class MyPlanInfo {
     private int planId;
-    String planTime;
-    String planLocation;
-    String planCity;
-    String planTheme;
-    String planTogether;
-    String planRemark;
-    Bitmap planPic;
-    boolean isPublic;
-    int userId;
+    String planTime = "";
+    String planLocation="";
+    String planCity="";
+    String planTheme="";
+    String planTogether="";
+    String planRemark="";
+    Bitmap planPic=null;
+    boolean isPublic = false;
+    int userId = 1;
 
     public boolean isPublic() {
         return isPublic;
@@ -97,6 +97,9 @@ public class MyPlanInfo {
         this.planRemark = planRemark;
     }
 
+    public Bitmap getPlanPicBitmap(){
+        return planPic;
+    }
     public byte[] getPlanPic() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         this.planPic.compress(Bitmap.CompressFormat.PNG,50,out);
